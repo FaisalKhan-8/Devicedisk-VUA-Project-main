@@ -50,7 +50,7 @@ const OurFoundation = () => {
   return (
     <section
       ref={sectionRef}
-      className='foundation min-h-screen flex items-center justify-center bg-[#EEF0FF] px-8 py-12'>
+      className='foundation min-h-screen flex items-center justify-center bg-[#eef0ff] px-8 py-12'>
       <div className='flex flex-col md:flex-row w-full max-w-7xl items-center justify-between md:gap-[120px] gap-16'>
         {/* Left Side */}
         <div
