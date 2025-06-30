@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
+import PhoneInput from './phoneInput';
 
 // Lazy load Map to avoid initial render weight
 const Map = dynamic(() => import('./map'), { ssr: false });
@@ -44,6 +45,8 @@ const ContactForm = React.memo(() => {
     },
     []
   );
+
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,6 +101,7 @@ const ContactForm = React.memo(() => {
       )}
 
       <form className="space-y-8 w-full" onSubmit={handleSubmit}>
+        
         <input
           type="text"
           name="fullName"
@@ -117,18 +121,10 @@ const ContactForm = React.memo(() => {
           placeholder="Company Name"
         />
 
-        <div className="flex items-center pb-2 border-b border-gray-400 focus-within:border-[#6210FF]">
-          <img src="https://flagcdn.com/w40/in.png" alt="India Flag" className="w-6 h-4 mr-2" />
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            className="flex-1 outfit-light bg-transparent text-[15px] md:text-[20px] outline-none text-black placeholder-black"
-            placeholder="Phone*"
-            required
-          />
-        </div>
+<PhoneInput
+  formData={formData}
+  handleInputChange={handleInputChange}
+/>
 
         <p className='outfit-light text-[19.69px] md:text-[20px] text-black'>Services <span className='text-[14px] md:text-[18px]'>(Select from Below)</span></p>
         <div className="flex flex-wrap gap-[8px] mt-[15px] md:gap-[16px]">
